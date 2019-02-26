@@ -14,7 +14,7 @@ deploy:
   script: deploy/deploy.sh
   # Restrict deployment only for tags
   on:
-    tags: false
+    tags: true
 
 # Deployment script requires few enviromnet variables
 env:
