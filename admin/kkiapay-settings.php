@@ -1,0 +1,75 @@
+<?php
+
+/**
+ * Settings for Kkiapay Plugin.
+ *
+ */
+defined('ABSPATH') || exit;
+
+return array(
+    'enabled' => array(
+        'title' => __('Enable/Disable', 'kkiapay-woocommerce'),
+        'label' => __('Enable Kkiapay Gateway', 'kkiapay-woocommerce'),
+        'type' => 'checkbox',
+        'description' => '',
+        'default' => 'yes'
+    ),
+
+    'testmode' => array(
+        'title' => __('Test Mode', 'kkiapay-woocommerce'),
+        'label' => __('Enable Test Mode', 'kkiapay-woocommerce'),
+        'type' => 'checkbox',
+        'description' => __('Sets Kkiapay into test mode', 'kkiapay-woocommerce'),
+        'default' => 'no',
+        'desc_tip'    => true,
+    ),
+    'description' => array(
+        'title'       => __( '(Optional) Description', 'kkiapay-woocommerce' ),
+        'type'        => 'text',
+        'description' => __( 'This controls the description which the user sees during checkout.', 'kkiapay-woocommerce' ),
+        'default'     => __( 'Use kkiapay to pay with your Mobile Money account, credit card or bank account', 'kkiapay-woocommerce' ),
+        'desc_tip'    => true,
+    ),
+    'public_key' => array(
+        'title' => __('Public KEY', 'kkiapay-woocommerce'),
+        'type' => 'password',
+        'desc_tip'    => true,
+        'description' => __('Get your API keys from your Kkkiapay dashboard', 'kkiapay-woocommerce')
+    ),
+    'private_key' => array(
+        'title' => __('Private KEY', 'kkiapay-woocommerce'),
+        'type' => 'password',
+        'desc_tip'    => true,
+        'description' => __('Get your API keys from your Kkkiapay dashboard', 'kkiapay-woocommerce')
+    ),
+    'secret' => array(
+        'title' => __('Secret', 'kkiapay-woocommerce'),
+        'type' => 'password',
+        'desc_tip'    => true,
+        'description' => __('Get your API keys from your Kkkiapay dashboard', 'kkiapay-woocommerce')
+    ),
+    'position' => array(
+        'title' => __('(Optional) Widget Position', 'kkiapay-woocommerce'),
+        'type' => 'select',
+        'description' => __('When Kkiapay payment form is displayed directly on your site, you can choose the widget displaying position (left side, right side or center). ', 'kkiapay-woocommerce'),
+        'default' => 'center',
+        'desc_tip'    => true,
+        'options' => array(
+            'right' => (__('Right Side', 'kkiapay-woocommerce')),
+            'left' => (__('Left Side', 'kkiapay-woocommerce')),
+            'center' => (__('Center', 'kkiapay-woocommerce'))
+        )
+    ),
+    'theme' => array(
+        'title' => __('(Optional) Widget Theme', 'kkiapay-woocommerce'),
+        'type' => 'text',
+        'desc_tip'    => true,
+        'description' => __('When Kkiapay payment form is displayed directly on your site, you can choose the widget color (eg: red) according to your website colors. ', 'kkiapay-woocommerce')
+    ),
+    'url' => array(
+        'title' => __('(Optional) Add link to your shop logo', 'kkiapay-woocommerce'),
+        'type' => 'text',
+        'desc_tip'    => true,
+        'description' => __("Enter the URL to a 128x128px image of your brand or product. e.g. <code>https://yoursite.com/wp-content/uploads/2013/09/yourimage.jpg</code>", 'kkiapay-woocommerce')
+    )
+);
