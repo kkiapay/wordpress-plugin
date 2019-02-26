@@ -13,8 +13,8 @@ deploy:
   provider: script
   script: deploy/deploy.sh
   # Restrict deployment only for tags
-  #on:
-  # tags: true
+  on:
+    tags: false
 
 # Deployment script requires few enviromnet variables
 env:
