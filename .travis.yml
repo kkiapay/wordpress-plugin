@@ -13,6 +13,7 @@ branches:
 
 # Enable Travis deployment
 deploy:
+  skip_cleanup: true
   # Use script as a deployment tool
   provider: script
   script: deploy/deploy.sh
