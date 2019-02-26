@@ -2,6 +2,10 @@ language: php
 php:
   - 7.0
 
+script:
+  # Override default Travis script action [phpunit]
+  - php -l *.php
+
 branches:
   only:
     # Enable Travis hook on tags (there is regular expression for semver tag)*
