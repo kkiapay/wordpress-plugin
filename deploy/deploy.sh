@@ -16,6 +16,7 @@ mv ./wp-assets/ ../assets/
 rm -rf .git/
 rm -rf deploy/
 rm .travis.yml
+rm README.md
 
 # 6. Go to SVN repository root
 cd ../
