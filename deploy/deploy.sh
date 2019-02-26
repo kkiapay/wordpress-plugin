@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # 1. Clone complete SVN repository to separate directory
-svn co $SVN_REPOSITORY ../svn
+svn co $SVN_REPOSITORY ../svn --trust-server-cert --non-interactive
 
 # 2. Copy git repository contents to SNV trunk/ directory
 cp -R ./* ../svn/trunk/
@@ -10,12 +10,14 @@ cp -R ./* ../svn/trunk/
 cd ../svn/trunk/
 
 # 4. Move assets/ to SVN /assets/
-mv ./wp-assets/ ../assets/
+mv ./wp-assets/* ../assets/
+
+#4.1 clean assets dir
+rm -R ./wp-assets
 
 # 5. Clean up unnecessary files
 rm -rf .git/
 rm -rf deploy/
-rm .travis.yml
 rm README.md
 
 # 6. Go to SVN repository root
