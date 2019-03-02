@@ -6,7 +6,7 @@
  * Author: Kkipay Developer Team ❤️
  * Author URI: https://kkiapay.me/
  * License: GPLv2
- * Version: 1.0.6
+ * Version: 2.0.1
  * Requires at least: 4.4
  * Tested up to: 5.0
  * WC requires at least: 2.6
@@ -14,6 +14,8 @@
  * Text Domain: kkiapay-woocommerce
  * Domain Path: /languages
 */
+translate('KkiaPay allows businesses to safely receive payments by mobile money, credit card and bank account');
+// translate('Kkipay Developer Team ❤️');
 
 // Make sure WooCommerce is active
  if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) return;
@@ -45,9 +47,9 @@ add_action( 'plugins_loaded', 'kkiapay_init_gateway_class' );
  */
 function kkiapay_action_links( $links ) {
 
-	$links[] = 	'<a href="admin.php?page=wc-settings&tab=checkout&section=kkiapay_woocommerce_plugin">Settings</a>';
-	$links[] = '<a href="https://docs.kkiapay.me/v1/plugin-et-sdk/woo-commerce" target="_blank">Docs</a>';
-	$links[] = '<a href="http://support.kkiapay.me" target="_blank">Support</a>';
+	$links[] = 	'<a href="admin.php?page=wc-settings&tab=checkout&section=kkiapay_woocommerce_plugin">' . __('Settings', 'kkiapay-woocommerce') . '</a>';
+	$links[] = '<a href="https://docs.kkiapay.me/v1/plugin-et-sdk/woo-commerce" target="_blank">' . __('Docs', 'kkiapay-woocommerce') . '</a>';
+	$links[] = '<a href="http://support.kkiapay.me" target="_blank">' .__('Support', 'kkiapay-woocommerce'). '</a>';
 
 	return $links;
 }
