@@ -27,7 +27,7 @@ cd ../
 svn cp trunk tags/$TRAVIS_TAG
 
 # 8. Push SVN tag
-svn ci --message "Release $TRAVIS_TAG" \
+svn ci --trust-server-cert --non-interactive --message "Release $TRAVIS_TAG" \
     --username $SVN_USERNAME \
     --password $SVN_PASSWORD \
     --non-interactive
