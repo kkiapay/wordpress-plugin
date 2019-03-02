@@ -28,11 +28,11 @@ msgstr "Mode Test"
 
 #: admin/kkiapay-settings.php:20
 msgid "Enable Test Mode"
-msgstr "Mettre Kkkiapay en Mode Test"
+msgstr "Mettre Kkiapay en Mode Test"
 
 #: admin/kkiapay-settings.php:22
 msgid "Sets Kkiapay into test mode"
-msgstr "Cocher cette Option pour mettre Kkiapay en envirronement sandbox"
+msgstr "Cocher cette option pour mettre Kkiapay en environnement sandbox"
 
 #: admin/kkiapay-settings.php:27
 msgid "(Optional) Description"
@@ -40,13 +40,15 @@ msgstr "(Optionnel) Description"
 
 #: admin/kkiapay-settings.php:29
 msgid "This controls the description which the user sees during checkout."
-msgstr "Définissez une description de kkiapay pour vos utilisateurs"
+msgstr "Définissez une description de Kkiapay pour vos utilisateurs"
 
 #: admin/kkiapay-settings.php:30
 msgid ""
 "Use kkiapay to pay with your Mobile Money account, credit card or bank "
 "account"
-msgstr "Utilisez kkiapay pour payer avec votre compte mobile money, une carte de credit ou un compte bancaire"
+msgstr ""
+"Utilisez Kkiapay pour payer avec votre compte mobile money, une carte de "
+"credit ou un compte bancaire"
 
 #: admin/kkiapay-settings.php:34
 msgid "Public KEY"
@@ -55,7 +57,9 @@ msgstr "Clé publique"
 #: admin/kkiapay-settings.php:37 admin/kkiapay-settings.php:43
 #: admin/kkiapay-settings.php:49
 msgid "Get your API keys from your Kkkiapay dashboard"
-msgstr "Obtenez vos clés d'API sur le dashboard Kkkiapay dans la section <b>Développeurs</b>"
+msgstr ""
+"Obtenez vos clés d'API sur le dashboard Kkkiapay dans la section "
+"<b>Développeurs</b>"
 
 #: admin/kkiapay-settings.php:40
 msgid "Private KEY"
@@ -63,7 +67,7 @@ msgstr "Clé Privée"
 
 #: admin/kkiapay-settings.php:46
 msgid "Secret"
-msgstr ""
+msgstr "Secret"
 
 #: admin/kkiapay-settings.php:52
 msgid "(Optional) Widget Position"
@@ -71,9 +75,11 @@ msgstr "(Optionnel) Disposition du Widget Kkiapay"
 
 #: admin/kkiapay-settings.php:54
 msgid ""
-"When Kkiapay payment form is displayed directly on your site, you can "
-"choose the widget displaying position (left side, right side or center). "
-msgstr "Utilisez cette option pour contrôler l'endroit où la fenêtre Kkiapay devrait s'afficher sur votre site"
+"When Kkiapay payment form is displayed directly on your site, you can choose "
+"the widget displaying position (left side, right side or center). "
+msgstr ""
+"Utilisez cette option pour contrôler l'endroit où la fenêtre Kkiapay devrait "
+"s'afficher sur votre site"
 
 #: admin/kkiapay-settings.php:58
 msgid "Right Side"
@@ -89,121 +95,168 @@ msgstr "Au centre de la page"
 
 #: admin/kkiapay-settings.php:64
 msgid "(Optional) Widget Theme"
-msgstr "(Optionnel) Theme du widget"
+msgstr "(Optionnel) Thème du widget"
 
 #: admin/kkiapay-settings.php:67
 msgid ""
-"When Kkiapay payment form is displayed directly on your site, you can "
-"choose the widget color (eg: red) according to your website colors. "
-msgstr "Paramétrez la couleur de la fenêtre kkiapay. Pour une meilleure harmonisation, utilisez la couleur dominante de votre site ou laissez vide. (recommandée)"
+"When Kkiapay payment form is displayed directly on your site, you can choose "
+"the widget color (eg: red) according to your website colors. "
+msgstr ""
+"Paramétrez la couleur de la fenêtre Kkiapay. Pour une meilleure "
+"harmonisation, utilisez la couleur dominante de votre site ou laissez vide "
+"(Recommandée)."
 
 #: admin/kkiapay-settings.php:70
 msgid "(Optional) Add link to your shop logo"
-msgstr "(Optionnel) Inserez un lien vers le logo de votre boutique"
+msgstr "(Optionnel) Insérez un lien vers le logo de votre boutique"
 
 #: admin/kkiapay-settings.php:73
 msgid ""
 "Enter the URL to a 128x128px image of your brand or product. e.g. "
 "<code>https://yoursite.com/wp-content/uploads/2013/09/yourimage.jpg</code>"
 msgstr ""
+"Entrer l'URL d'une image de taille 128x128px de votre produit ou marque, "
+"exemple <code>https://monsite.com/wp-content/uploads/2013/09/monimage.jpg</"
+"code>"
 
 #: includes/class-wc-kkiapay-gateway.php:21
 msgid ""
-"Use kkiapay to accept payment from Mobile Money account, credit card or "
-"bank account"
-msgstr "Utilisez kkiapay pour payer avec votre compte mobile money, une carte de credit ou un compte bancaire"
+"Use kkiapay to accept payment from Mobile Money account, credit card or bank "
+"account"
+msgstr ""
+"Utilisez Kkiapay pour payer avec votre compte mobile money, une carte de "
+"credit ou un compte bancaire"
 
-#: includes/class-wc-kkiapay-gateway.php:87
+#: includes/class-wc-kkiapay-gateway.php:90
 msgid ""
-"Kkiapay does not support your store currency. Kindly set it to either EUR "
-"(&#163), XOF (FCFA) or USD (&#36;)"
-msgstr "Kkiapay ne supporte pas la devise de votre boutique"
+"Kkiapay does not support your store currency. Kindly set it to XOF (FCFA)."
+msgstr ""
+"Kkiapay ne supporte pas la devise de votre boutique. Veuillez choisir le "
+"FCFA (XOF) comme devise"
 
-#: includes/class-wc-kkiapay-gateway.php:98
+#: includes/class-wc-kkiapay-gateway.php:101
 msgid "Kkiapay Payment Gateway Disabled"
 msgstr "Kkiapay est désactivé"
 
-#: includes/class-wc-kkiapay-gateway.php:138
+#: includes/class-wc-kkiapay-gateway.php:134
 msgid ""
 "Thank you for your order, please click the <b>Proceed to payment</b> button "
 "below to make payment."
-msgstr "Merci pour votre commande, Cliquez sur le bouton <b>Procéder au paiement</b>"
+msgstr ""
+"Merci pour votre commande, Cliquez sur le bouton <b>Procéder au paiement</b>"
 
-#: includes/class-wc-kkiapay-gateway.php:140
+#: includes/class-wc-kkiapay-gateway.php:136
 msgid "Cancel order"
 msgstr "Annuler la Commande"
 
-#: includes/class-wc-kkiapay-gateway.php:141
+#: includes/class-wc-kkiapay-gateway.php:137
 msgid "Proceed to payment"
 msgstr "Procéder au paiement"
 
-#: includes/class-wc-kkiapay-gateway.php:182
+#: includes/class-wc-kkiapay-gateway.php:189
 msgid "Payment was successful on Kkiapay"
 msgstr "Paiement réussi sur Kkiapay"
 
-#: includes/class-wc-kkiapay-gateway.php:184
-#: includes/class-wc-kkiapay-gateway.php:194
+#: includes/class-wc-kkiapay-gateway.php:191
+#: includes/class-wc-kkiapay-gateway.php:200
+#: includes/class-wc-kkiapay-gateway.php:211
 msgid "Thank you for your order.<br>"
 msgstr "Merci pour votre commande. <br>"
 
-#: includes/class-wc-kkiapay-gateway.php:185
+#: includes/class-wc-kkiapay-gateway.php:192
 msgid ""
 "Your payment was successful, we are now <strong>processing</strong> your "
 "order."
-msgstr "Votre paiement a été effectué. Nous <strong> sommes en train de traiter </ strong> votre commande."
+msgstr ""
+"Votre paiement a été effectué. Nous <strong> sommes en train de traiter </ "
+"strong> votre commande."
 
-#: includes/class-wc-kkiapay-gateway.php:195
-msgid "Your payment has not been confirmed yet, so we have to put your order <strong>on-hold</strong> "
-msgstr "Votre paiement n'a pas encore été confirmé! Votre commande est donc en attente de validation "
+#: includes/class-wc-kkiapay-gateway.php:201
+#: includes/class-wc-kkiapay-gateway.php:212
+msgid ""
+"Your payment has not been confirmed yet, so we have to put your order "
+"<strong>on-hold</strong> "
+msgstr ""
+"Votre paiement n'a pas encore été confirmé! Votre commande est donc en "
+"attente de validation "
 
-#: includes/class-wc-kkiapay-gateway.php:196
-msgid "If this persists, Please, contact us for information regarding this order."
-msgstr "Si cela persiste, veuillez nous contacter pour obtenir de l'aide sur cette commande."
+#: includes/class-wc-kkiapay-gateway.php:202
+#: includes/class-wc-kkiapay-gateway.php:213
+msgid ""
+"If this persists, Please, contact us for information regarding this order."
+msgstr ""
+"Si cela persiste, veuillez nous contacter pour obtenir de l'aide sur cette "
+"commande."
 
-#: includes/class-wc-kkiapay-gateway.php:197
+#: includes/class-wc-kkiapay-gateway.php:214
 msgid ""
 "Attention: New order has been placed on hold because of incorrect payment "
 "amount or currency. Please, look into it. <br>"
-msgstr "Attention: Une nouvelle commande à été mise en attente suite à un paiement incorrect"
+msgstr ""
+"Attention: Une nouvelle commande à été mise en attente suite à un paiement "
+"incorrect"
 
-#: includes/class-wc-kkiapay-gateway.php:223
+#: includes/class-wc-kkiapay-gateway.php:215
+msgid "Amount paid: "
+msgstr "Montant payé:"
+
+#: includes/class-wc-kkiapay-gateway.php:236
 msgid "The order payment failed on Kkiapay"
 msgstr "Le paiement de la commande a échoué sur Kkiapay"
 
-#: includes/class-wc-kkiapay-gateway.php:224
+#: includes/class-wc-kkiapay-gateway.php:237
 msgid "Your payment <strong>failed</strong>. "
 msgstr "Votre <strong> paiement a échoué </ strong>."
 
-#: includes/class-wc-kkiapay-gateway.php:225
+#: includes/class-wc-kkiapay-gateway.php:238
 msgid "Please, try funding your account."
-msgstr "Veuillez approvisionner votre compte."
+msgstr "Veuillez essayer de créditer votre compte"
 
-#: includes/class-wc-kkiapay-gateway.php:239
+#: includes/class-wc-kkiapay-gateway.php:252
+#, php-format
 msgid ""
 "<strong>%s</strong> is enabled and WooCommerce is not forcing the SSL "
 "certificate on your checkout page. Please ensure that you have a valid SSL "
-"certificate and that you are <a href=\"%s\">forcing the checkout pages to "
-"be secured.</a>"
+"certificate and that you are <a href=\"%s\">forcing the checkout pages to be "
+"secured.</a>"
 msgstr ""
+"<strong>%s</strong> est activé et WooCommerce ne force pas le certificat SSL "
+"sur votre page de paiement Assurez-vous que vous disposez d'un certificat "
+"SSL valide et que vous <a href=\"%s\"> forcez la sécurisation des pages de "
+"paiement. </a>"
+
+#: kkiapay-woocommerce-plugin.php:48
+msgid "Settings"
+msgstr "Réglages"
+
+#: kkiapay-woocommerce-plugin.php:49
+msgid "Docs"
+msgstr "Documentation"
+
+#: kkiapay-woocommerce-plugin.php:50
+msgid "Support"
+msgstr "Support"
 
 #. Plugin Name of the plugin/theme
 msgid "KKiapay WooCommerce Plugin"
-msgstr ""
+msgstr "KKiapay WooCommerce Plugin"
 
 #. Plugin URI of the plugin/theme
 msgid "https://wordpress.org/plugins/kkiapay-woocommerce-plugin"
-msgstr ""
+msgstr "https://wordpress.org/plugins/kkiapay-woocommerce-plugin"
 
 #. Description of the plugin/theme
 msgid ""
-"KkiaPay allows businesses to safely receive payments by mobile money, "
-"credit card and bank account."
-msgstr "KkiaPay permet aux entreprises de recevoir des paiements par mobile money, carte de crédit et compte bancaire en toute sécurité."
+"KkiaPay allows businesses to safely receive payments by mobile money, credit "
+"card and bank account."
+msgstr ""
+"KkiaPay permet aux entreprises de recevoir des paiements par mobile money, "
+"carte de crédit et compte bancaire en toute sécurité."
 
 #. Author of the plugin/theme
 msgid "Kkipay Developer Team ❤️"
-msgstr ""
+msgstr "Kkipay ❤️"
 
 #. Author URI of the plugin/theme
 msgid "https://kkiapay.me/"
-msgstr ""
+msgstr "https://kkiapay.me/"
