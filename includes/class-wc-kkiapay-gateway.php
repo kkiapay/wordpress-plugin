@@ -158,8 +158,8 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
 
     public function get_callback_url($order_id)
     {
-        $order = wc_get_order($order_id);
-        return $order->get_checkout_order_received_url();
+        return home_url('/') . 'wc-api/' . get_class($this) . '/?state=' .$order_id;
+        
         //$this->kkiapay->hash($order_id)
     }
 
