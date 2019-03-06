@@ -45,9 +45,9 @@ add_action( 'plugins_loaded', 'kkiapay_init_gateway_class' );
  */
 function kkiapay_action_links( $links ) {
 
-	$links[] = 	'<a href="admin.php?page=wc-settings&tab=checkout&section=kkiapay_woocommerce_plugin">Settings</a>';
-	$links[] = '<a href="https://docs.kkiapay.me/v1/plugin-et-sdk/woo-commerce" target="_blank">Docs</a>';
-	$links[] = '<a href="http://support.kkiapay.me" target="_blank">Support</a>';
+	$links[] = 	'<a href="admin.php?page=wc-settings&tab=checkout&section=kkiapay_woocommerce_plugin">' . __('Settings', 'kkiapay-woocommerce') . '</a>';
+	$links[] = '<a href="https://docs.kkiapay.me/v1/plugin-et-sdk/woo-commerce" target="_blank">' . __('Docs', 'kkiapay-woocommerce') . '</a>';
+	$links[] = '<a href="http://support.kkiapay.me" target="_blank">' .__('Support', 'kkiapay-woocommerce'). '</a>';
 
 	return $links;
 }
