@@ -84,10 +84,10 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
         //verify currency
         $currency = get_woocommerce_currency();
 
-        $allowed_currency = array('XOF', 'USD', 'EUR');
+        $allowed_currency = array('XOF');
 
         if (!in_array($currency, $allowed_currency)) {
-            $this->msg = __('Kkiapay does not support your store currency. Kindly set it to either EUR (&#163), XOF (FCFA) or USD (&#36;)', 'kkiapay-woocommerce') . '<a href="' . admin_url('admin.php?page=wc-settings&tab=general') . '">here</a>';
+            $this->msg = __('Kkiapay does not support your store currency. Kindly set it to XOF (FCFA)', 'kkiapay-woocommerce') . '<a href="' . admin_url('admin.php?page=wc-settings&tab=general') . '">here</a>';
 
             return false;
         }
@@ -159,6 +159,7 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
     public function get_callback_url($order_id)
     {
         return home_url('/') . 'wc-api/' . get_class($this) . '/?state=' .$order_id;
+        
         //$this->kkiapay->hash($order_id)
     }
 
