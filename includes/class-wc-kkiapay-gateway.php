@@ -60,7 +60,7 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
 
     public function import_kkiapay()
     {
-        wp_enqueue_script('setup-kkiapay-script', plugins_url('../assets/js/checkout.js', __FILE__), [], 'v1', true);
+        wp_enqueue_script('setup-kkiapay-script', "https://cdn.kkiapay.me/k.js", __FILE__), [], 'v1', true);
         wp_register_script('init-kkiapay-script', plugins_url('../assets/js/invoke.js', __FILE__), ['setup-kkiapay-script'], 'v1', true);
 
         if (!class_exists('Kkiapay')) require_once(plugin_dir_path(__DIR__) . 'external/kkiapay-php/src/Kkiapay.php');
