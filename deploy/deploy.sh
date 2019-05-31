@@ -24,9 +24,6 @@ VERSION=$(awk 'NR==7' readme.txt | cut -d ' ' -f 3)
 ZIP_FILE="$PLUGIN_BUILDS_PATH/$PLUGIN-$VERSION.zip"
 
 mkdir -p $PLUGIN_BUILDS_PATH
-
-ls
-
 zip -r $ZIP_FILE . -x "deploy/*" "build-cfg/*" "builds/*" ".*" "wp-assets/*"
 # Ensure the zip file for the current version has been built
 if [ ! -f "$ZIP_FILE" ]; then
@@ -47,7 +44,7 @@ cd "$PLUGIN_BUILDS_PATH"
 # Remove any unzipped dir so we start from scratch
 rm -fR "$PLUGIN"
 # Unzip the built plugin
-unzip -q -o "$ZIP_FILE"
+unzip -q -o "$ZIP_FILE" -d $PLUGIN
 
 # Clean up any previous svn dir
 rm -fR svn
