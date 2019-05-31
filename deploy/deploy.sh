@@ -25,7 +25,9 @@ ZIP_FILE="$PLUGIN_BUILDS_PATH/$PLUGIN-$VERSION.zip"
 
 mkdir -p PLUGIN_BUILDS_PATH
 
-zip -r $ZIP_FILE . -x "deploy/*" "build-cfg/*" ".*" "wp-assets/*"
+ls
+
+zip -r $ZIP_FILE . -x "deploy/*" "build-cfg/*" "builds/*" ".*" "wp-assets/*"
 # Ensure the zip file for the current version has been built
 if [ ! -f "$ZIP_FILE" ]; then
     echo "Built zip file $ZIP_FILE does not exist" 1>&2
