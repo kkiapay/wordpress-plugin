@@ -23,7 +23,7 @@ PLUGIN_BUILD_CONFIG_PATH="$PROJECT_ROOT/build-cfg"
 VERSION=$(awk 'NR==7' readme.txt | cut -d ' ' -f 3)
 ZIP_FILE="$PLUGIN_BUILDS_PATH/$PLUGIN-$VERSION.zip"
 
-mkdir -p PLUGIN_BUILDS_PATH
+mkdir -p $PLUGIN_BUILDS_PATH
 
 ls
 
