@@ -4,6 +4,8 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+require_once(ABSPATH.'wp-admin/includes/plugin.php');
+
 class WC_Kkiapay_Gateway extends WC_Payment_Gateway
 {
     /**
@@ -60,7 +62,11 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
 
     public function import_kkiapay()
     {
-        wp_enqueue_script('setup-kkiapay-script', "https://cdn.kkiapay.me/k.js", [], 'v1', true);
+        $filename='kkiapay-woocommerce-plugin.php';
+        $path=plugin_dir_path(__DIR__).$filename;
+        $plugin_information = get_plugin_data($path);
+
+        wp_enqueue_script('setup-kkiapay-script', "https://cdn.kkiapay.me/k.js", [], $plugin_information['Version'], true);
         wp_register_script('init-kkiapay-script', plugins_url('../assets/js/invoke.js', __FILE__), ['setup-kkiapay-script'], 'v1', true);
 
         if (!class_exists('Kkiapay')) require_once(plugin_dir_path(__DIR__) . 'external/kkiapay-php/src/Kkiapay.php');
