@@ -6,7 +6,7 @@
  * Author: Kkipay Developer Team ❤️
  * Author URI: https://kkiapay.me/
  * License: GPLv2
- * Version: 2.1.2
+ * Version: 2.1.3
  * Requires at least: 4.4
  * Tested up to: 5.2
  * WC requires at least: 2.6
