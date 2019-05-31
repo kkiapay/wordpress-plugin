@@ -18,7 +18,7 @@ fi
 WP_ORG_USERNAME=$SVN_USERNAME
 PLUGIN="kkiapay-woocommerce"
 PROJECT_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
-PLUGIN_BUILDS_PATH="$PROJECT_ROOT/builds"
+PLUGIN_BUILDS_PATH="$PROJECT_ROOT"
 PLUGIN_BUILD_CONFIG_PATH="$PROJECT_ROOT/build-cfg"
 VERSION=$(awk 'NR==7' readme.txt | cut -d ' ' -f 3)
 ZIP_FILE="$PLUGIN_BUILDS_PATH/$PLUGIN-$VERSION.zip"
