@@ -6,9 +6,9 @@
  * Author: Kkipay Developer Team ❤️
  * Author URI: https://kkiapay.me/
  * License: GPLv2
- * Version: 2.0.1
+ * Version: 2.1.2
  * Requires at least: 4.4
- * Tested up to: 5.0
+ * Tested up to: 5.2
  * WC requires at least: 2.6
  * WC tested up to: 3.5
  * Text Domain: kkiapay-woocommerce
