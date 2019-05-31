@@ -5,7 +5,7 @@ if [[ -z "$TRAVIS" ]]; then
 	exit 1
 fi
 
-if [[ -z "$WP_ORG_PASSWORD" ]]; then
+if [[ -z "$SVN_PASSWORD" ]]; then
 	echo "WordPress.org password not set" 1>&2
 	exit 1
 fi
