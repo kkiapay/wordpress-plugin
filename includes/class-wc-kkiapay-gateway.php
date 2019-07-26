@@ -69,7 +69,6 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
         wp_enqueue_script('setup-kkiapay-script', "https://cdn.kkiapay.me/k.js", [], $plugin_information['Version'], true);
         wp_register_script('init-kkiapay-script', plugins_url('../assets/js/invoke.js', __FILE__), ['setup-kkiapay-script'], 'v1', true);
 
-        if (!class_exists('Kkiapay')) require_once(plugin_dir_path(__DIR__) . 'external/kkiapay-php/src/Kkiapay.php');
         $this->kkiapay = new \Kkiapay\Kkiapay($this->public_key, $this->private_key, $this->secret);
 
     }
