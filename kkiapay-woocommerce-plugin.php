@@ -6,7 +6,7 @@
  * Author: Kkipay Developer Team ❤️
  * Author URI: https://kkiapay.me/
  * License: GPLv2
- * Version: 2.1.3
+ * Version: 2.1.4
  * Requires at least: 4.4
  * Tested up to: 5.2
  * WC requires at least: 2.6
@@ -18,6 +18,8 @@
 // Make sure WooCommerce is active
  if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) return;
 
+// include kkiapay
+require_once(plugin_dir_path(__DIR__) . 'kkiapay-woocommerce/vendor/autoload.php');
 
 /*
  * The class itself, please note that it is inside plugins_loaded action hook
