@@ -8,6 +8,8 @@
         }
     ],
     "require": {
-        "kkiapay/kkiapay-php": "dev-master"
+        "kkiapay/kkiapay-php": "dev-master",
+        "ralouphie/getallheaders": "^3.0",
+        "guzzlehttp/guzzle": "^6.3"
     }
 }
