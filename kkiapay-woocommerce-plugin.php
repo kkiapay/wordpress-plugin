@@ -18,6 +18,8 @@
 // Make sure WooCommerce is active
  if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) return;
 
+// include kkiapay
+require_once(plugin_dir_path(__DIR__) . 'kkiapay-woocommerce/vendor/autoload.php');
 
 /*
  * The class itself, please note that it is inside plugins_loaded action hook
