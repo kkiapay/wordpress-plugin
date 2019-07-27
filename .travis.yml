@@ -5,6 +5,7 @@ php:
 script:
   # Override default Travis script action [phpunit]
   - php -l *.php
+  - composer install
 
 # Enable Travis deployment
 deploy:
