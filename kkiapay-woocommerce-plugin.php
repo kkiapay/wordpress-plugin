@@ -3,7 +3,7 @@
  * Plugin Name: KKiapay WooCommerce Plugin
  * Plugin URI: https://wordpress.org/plugins/kkiapay-woocommerce-plugin
  * Description: KkiaPay allows businesses to safely receive payments by mobile money, credit card and bank account.
- * Author: Kkipay Developer Team ❤️
+ * Author: Kkiapay Developer Team ❤️
  * Author URI: https://kkiapay.me/
  * License: GPLv2
  * Version: 2.1.8
