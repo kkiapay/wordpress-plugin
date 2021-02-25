@@ -2,7 +2,7 @@
 Contributors: shadaiali
 Tags: credit card, mobile money, africa payment,online payment, swift payment
 Requires at least: 4.4
-Tested up to: 5.2
+Tested up to: 5.6
 Requires PHP: 5.6
 Stable tag: 2.1.7
 License: GPLv3
