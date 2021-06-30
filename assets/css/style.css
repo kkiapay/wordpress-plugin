@@ -1,0 +1,36 @@
+label[for=payment_method_kkiapay_woocommerce_plugin] > img {
+    height: 40px !important;
+    max-height: unset !important;
+    margin-top: -15px;
+}
+
+.kkiapay-payment-method {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+
+
+@media screen and (max-width: 1024px)  {
+    label[for=payment_method_kkiapay_woocommerce_plugin] > img {
+        margin-top: unset;
+        max-height: 24px !important;
+    } 
+}
+
+@media screen and (max-width: 768px) and (min-width:600px)  {
+    label[for=payment_method_kkiapay_woocommerce_plugin] > img {
+        margin-top: unset;
+        max-height: unset !important;
+        height: 40px !important;
+    } 
+}
+
+
+
+@media screen and (max-width: 600px)  {
+    label[for=payment_method_kkiapay_woocommerce_plugin] > img {
+        margin-top: unset;
+        max-height: 24px !important;
+    } 
+}
