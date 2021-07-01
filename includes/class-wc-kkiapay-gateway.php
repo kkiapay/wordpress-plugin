@@ -4,7 +4,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-require_once(ABSPATH.'wp-admin/includes/plugin.php');
+require_once(ABSPATH . 'wp-admin/includes/plugin.php');
 
 class WC_Kkiapay_Gateway extends WC_Payment_Gateway
 {
@@ -14,13 +14,13 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
      */
     public function __construct()
     {
-        
+
         $this->id = 'kkiapay_woocommerce_plugin';
         $this->icon = plugins_url('../assets/img/kkiapay.svg', __FILE__);
         $this->has_fields = false;
-        $this->title = 'Kkiapay';
+        $this->title = apply_filters('gettext', "Payez par Mobile Money  et par Carte Bancaire (Kkiapay)", "Pay by mobile money and credit card (Kkiapay)", "fr_FR");
         $this->method_title = 'Kkiapay';
-        $this->method_description = __('Use kkiapay to accept payment from Mobile Money account, credit card or bank account', 'kkiapay-woocommerce');
+        $this->method_description = __("Utilisez kkiapay pour accepter les paiements par  Mobile Money,  carte de crédit ou d'un compte bancaire.", 'kkiapay-woocommerce');
 
         $this->init_form_fields();
 
@@ -35,10 +35,23 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
         $this->testmode = 'yes' === $this->testmode;
         $this->kkiapay_config['key'] = $this->public_key;
 
+
+        if ($this->description === "") {
+
+
+            $this->description = "<div>
+            <div class='kkiapay-payment-method'>
+              Moov Benin, Mtn Benin, Orange Cote d'Ivoire, Visa, Mastercard, American Express
+            </div>
+        </div>";
+        }
+
+
+
         $this->import_kkiapay();
         add_action('admin_notices', array($this, 'do_ssl_check'));
         add_action('woocommerce_receipt_' . $this->id, array($this, 'receipt_page'));
-        add_action('woocommerce_api_'.strtolower(get_class($this)), array($this, 'on_kkiapay_back'));
+        add_action('woocommerce_api_' . strtolower(get_class($this)), array($this, 'on_kkiapay_back'));
 
         if (is_admin()) {
             add_action('woocommerce_update_options_payment_gateways_' . $this->id, array($this, 'process_admin_options'));
@@ -49,13 +62,11 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
         if (!$this->is_valid_for_use()) {
             $this->enabled = false;
         }
-
-        
     }
 
 
 
-    
+
 
     /**
      * Initialise Gateway Settings Form Fields.
@@ -67,29 +78,32 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
 
     public function import_kkiapay()
     {
-        $filename='kkiapay-woocommerce-plugin.php';
-        $path=plugin_dir_path(__DIR__).$filename;
+        $filename = 'kkiapay-woocommerce-plugin.php';
+        $path = plugin_dir_path(__DIR__) . $filename;
         $plugin_information = get_plugin_data($path);
+
+
+
+        wp_register_style('custom-kkiapay-style', plugins_url('../assets/css/style.css', __FILE__));
+        wp_enqueue_style('custom-kkiapay-style');
 
         wp_enqueue_script('setup-kkiapay-script', "https://cdn.kkiapay.me/k.js", [], $plugin_information['Version'], true);
         wp_register_script('init-kkiapay-script', plugins_url('../assets/js/invoke.js', __FILE__), ['setup-kkiapay-script'], 'v1', true);
-        
+
         if ($this->testmode == 'yes') {
             $sandbox = true;
         } else {
             $sandbox = false;
         }
-       
-        
-        $this->kkiapay = new \Kkiapay\Kkiapay($this->public_key, $this->private_key, $this->secret,$sandbox);
 
+
+        $this->kkiapay = new \Kkiapay\Kkiapay($this->public_key, $this->private_key, $this->secret, $sandbox);
     }
 
     public function import_admin_scripts()
     {
         wp_enqueue_script('jscolor', plugins_url('../assets/js/jscolor.js', __FILE__), [], 'v1', true);
         wp_enqueue_script('setup-admin-script', plugins_url('../assets/js/admin.js', __FILE__), [], 'v1', true);
-
     }
 
     /**
@@ -160,24 +174,20 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
             $this->kkiapay_config['phone'] = $order->get_billing_phone();
             $this->kkiapay_config['email'] = $order->get_billing_email();
             $this->kkiapay_config['name'] = $order->get_formatted_billing_full_name();
-
         } else {
 
             $this->kkiapay_config['amount'] = $order->order_total;
             $this->kkiapay_config['phone'] = $order->billing_phone;
             $this->kkiapay_config['email'] = $order->billing_email;
             $this->kkiapay_config['name'] = $order->billing_first_name . ' ' . $order->billing_last_name;
-
         }
 
         $this->request_kkiapay_payment($this->kkiapay_config);
-
     }
 
     public function get_callback_url($order_id)
     {
-        return home_url('/') . '?wc-api=' . get_class($this) . '&state=' .$order_id;
-        
+        return home_url('/') . '?wc-api=' . get_class($this) . '&state=' . $order_id;
     }
 
     public function request_kkiapay_payment($data)
@@ -198,7 +208,7 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
 
             if ($response->status == \Kkiapay\STATUS::SUCCESS && $response->amount >= $order->get_total()) {
 
-                $order->update_status( 'completed' );
+                $order->update_status('completed');
                 $order->add_order_note(__('Payment was successful on Kkiapay', 'kkiapay-woocommerce'));
                 $order->add_order_note('Kkiapay transaction Id: ' . $response->transactionId);
                 $customer_note = __('Thank you for your order.<br>', 'kkiapay-woocommerce');
@@ -238,7 +248,6 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
             } else {
                 $this->handlePaymentFailed($order);
             }
-
         } else {
             $this->handlePaymentFailed($order);
         }
