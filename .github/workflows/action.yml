@@ -1,4 +1,4 @@
-name: PHP Composer
+name: Deploy kkiapay woocommerce plugin
 
 on:
   push:
@@ -30,9 +30,7 @@ jobs:
     - name: Install dependencies
       run: composer install
       
-    - name: show variable
-      run: sh ./deploy/debug.sh 
 
     - name: run deploy shell script
-      run: chmod +x ./deploy/debug.sh
+      run: chmod +x ./deploy/deploy.sh
 
