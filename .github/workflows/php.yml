@@ -27,6 +27,9 @@ jobs:
 
     - name: Install dependencies
       run: composer install
+      
+    - name: show variable
+    - run: sh debug.sh 
 
     - name: run deploy shell script
       run: chmod +x ./deploy/debug.sh
