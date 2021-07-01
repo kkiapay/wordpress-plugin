@@ -7,6 +7,8 @@ on:
     branches: [ master ]
 env:
   SVN_REPOSITORY: "https://plugins.svn.wordpress.org/kkiapay-woocommerce"
+  SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+  SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
 
 jobs:
   build:
@@ -33,7 +35,4 @@ jobs:
 
     - name: run deploy shell script
       run: chmod +x ./deploy/debug.sh
-      env:
-        SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
-        SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
 
