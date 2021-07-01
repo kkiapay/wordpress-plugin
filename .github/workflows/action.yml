@@ -31,6 +31,9 @@ jobs:
       run: composer install
       
 
-    - name: run deploy shell script
+    - name: change file permissions
       run: chmod +x ./deploy/deploy.sh
+      
+    - name: run deploy shell script
+      run: ./deploy/deploy.sh
 
