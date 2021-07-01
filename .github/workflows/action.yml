@@ -1,0 +1,36 @@
+name: Deploy kkiapay woocommerce plugin
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+env:
+  SVN_REPOSITORY: "https://plugins.svn.wordpress.org/kkiapay-woocommerce"
+  SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+  SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Cache Composer packages
+      id: composer-cache
+      uses: actions/cache@v2
+      with:
+        path: vendor
+        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-php-
+
+    - name: Install dependencies
+      run: composer install
+      
+
+    - name: run deploy shell script
+      run: chmod +x ./deploy/deploy.sh
+
