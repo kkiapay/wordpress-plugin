@@ -10,7 +10,7 @@
  * Requires at least: 4.4
  * Tested up to: 5.6
  * WC requires at least: 2.6
- * WC tested up to: 3.5
+ * WC tested up to: 5.0.0
  * Text Domain: kkiapay-woocommerce
  * Domain Path: /languages
 */
