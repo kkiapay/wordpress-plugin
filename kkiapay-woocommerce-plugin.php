@@ -8,7 +8,7 @@
  * License: GPLv2
  * Version: 2.1.8
  * Requires at least: 4.4
- * Tested up to: 5.6
+ * Tested up to: 5.7.2
  * WC requires at least: 2.6
  * WC tested up to: 5.0.0
  * Text Domain: kkiapay-woocommerce
