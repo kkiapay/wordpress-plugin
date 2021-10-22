@@ -23,6 +23,13 @@ return array(
         'default' => 'no',
         'desc_tip'    => true,
     ),
+    'title' => array(
+        'title'       => __( '(Optional) Title', 'kkiapay-woocommerce' ),
+        'type'        => 'text',
+        'description' => __( 'This controls the title which the user sees during checkout.', 'kkiapay-woocommerce' ),
+        'default'     => __( 'Pay by Mobile Money and Credit Card (Kkiapay)', 'kkiapay-woocommerce' ),
+        'desc_tip'    => true,
+    ),
     'description' => array(
         'title'       => __( '(Optional) Description', 'kkiapay-woocommerce' ),
         'type'        => 'text',
