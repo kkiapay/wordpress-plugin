@@ -35,10 +35,22 @@ msgid "Sets Kkiapay into test mode"
 msgstr "Cocher cette option pour mettre Kkiapay en environnement sandbox"
 
 #: admin/kkiapay-settings.php:27
+msgid "(Optional) Title"
+msgstr "(Optionnel) Titre"
+
+#: admin/kkiapay-settings.php:29
+msgid "This controls the title which the user sees during checkout."
+msgstr "Définissez un titre Kkiapay pour vos utilisateurs"
+
+#: admin/kkiapay-settings.php:30
+msgid "Pay by Mobile Money and Credit Card (Kkiapay)"
+msgstr "Payez par Mobile Money et par Carte Bancaire (Kkiapay)"
+
+#: admin/kkiapay-settings.php:34
 msgid "(Optional) Description"
 msgstr "(Optionnel) Description"
 
-#: admin/kkiapay-settings.php:29
+#: admin/kkiapay-settings.php:36
 msgid "This controls the description which the user sees during checkout."
 msgstr "Définissez une description de Kkiapay pour vos utilisateurs"
 
