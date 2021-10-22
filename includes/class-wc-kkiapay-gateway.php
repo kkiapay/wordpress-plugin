@@ -18,15 +18,17 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
         $this->id = 'kkiapay_woocommerce_plugin';
         $this->icon = plugins_url('../assets/img/kkiapay.svg', __FILE__);
         $this->has_fields = false;
-        $this->title = apply_filters('gettext', "Payez par Mobile Money  et par Carte Bancaire (Kkiapay)", "Pay by mobile money and credit card (Kkiapay)", "fr_FR");
+        $this->title = $this->settings['title'];
         $this->method_title = 'Kkiapay';
-        $this->method_description = __("Utilisez kkiapay pour accepter les paiements par  Mobile Money,  carte de crédit ou d'un compte bancaire.", 'kkiapay-woocommerce');
+        $this->method_description = $this->settings['description'];
 
         $this->init_form_fields();
 
         $this->init_settings();
 
         $this->kkiapay_config = array();
+
+
         foreach ($this->settings as $setting_key => $value) {
             $this->$setting_key = $value;
             $this->kkiapay_config[$setting_key] = $value;
