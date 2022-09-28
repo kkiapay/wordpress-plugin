@@ -18,9 +18,9 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
         $this->id = 'kkiapay_woocommerce_plugin';
         $this->icon = plugins_url('../assets/img/kkiapay.svg', __FILE__);
         $this->has_fields = false;
-        $this->title = $this->settings['title'];
+        $this->title = array_key_exists('title', $this->settings) ? $this->settings['title']: '';
         $this->method_title = 'Kkiapay';
-        $this->method_description = $this->settings['description'];
+        $this->method_description = array_key_exists('description', $this->settings) ? $this->settings['description']: '';
 
         $this->init_form_fields();
 
