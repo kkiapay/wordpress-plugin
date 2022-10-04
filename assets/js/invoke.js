@@ -1,6 +1,8 @@
-window.addEventListener('load', function () {
+document.addEventListener('DOMContentLoaded', function () {
   const button = document.querySelector('#kkiapay-button');
-  inputs.testmode === 'yes' ? (inputs.sandbox = true) : (inputs.sandbox = false);
+  inputs.testmode === 'yes'
+    ? (inputs.sandbox = true)
+    : (inputs.sandbox = false);
 
   if (!inputs.theme) inputs.theme = 'primary';
 
