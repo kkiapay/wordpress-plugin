@@ -10,5 +10,24 @@ document.addEventListener('DOMContentLoaded', function () {
     event.preventDefault();
     inputs.sdk = 'woocommerce';
     window.openKkiapayWidget(inputs);
+
+    let redirectionStart = false;
+
+    window.addSuccessListener((data) => {
+      setTimeout(() => {
+        if (!redirectionStart) {
+          const url = `${inputs.callback}&transaction_id=${data.transactionId}`;
+          window.location.replace(url);
+        }
+        try {
+          sessionStorage.removeItem('status');
+        } finally {
+        }
+      }, 5000);
+    });
+
+    window.addPaymentEndListener(() => {
+      redirectionStart = true;
+    });
   });
 });
