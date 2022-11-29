@@ -19,10 +19,6 @@ document.addEventListener('DOMContentLoaded', function () {
           const url = `${inputs.callback}&transaction_id=${data.transactionId}`;
           window.location.replace(url);
         }
-        try {
-          sessionStorage.removeItem('status');
-        } finally {
-        }
       }, 5000);
     });
 
