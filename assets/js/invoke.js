@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const button = document.querySelector('#wc__wc__kkiapay-button');
+  const button = document.querySelector('#wc__kkiapay-button');
   inputs.testmode === 'yes'
     ? (inputs.sandbox = true)
     : (inputs.sandbox = false);
