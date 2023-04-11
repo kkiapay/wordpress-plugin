@@ -168,7 +168,7 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
         echo '<p>' . __('Thank you for your order, please click the <b>Proceed to payment</b> button below to make payment.', 'kkiapay-woocommerce') . '</p>';
         echo '<a class="button cancel" href="' . esc_url($order->get_cancel_order_url()) . '">';
         echo __('Cancel order', 'kkiapay-woocommerce') . '</a> ';
-        echo '<button class="button alt  wc-forward"  id="wc__kkiapay-button">' . __('Proceed to payment', 'kkiapay-woocommerce') . '</button> ';
+        echo '<button class="button alt  wc-forward"  id="wc__wc__kkiapay-button">' . __('Proceed to payment', 'kkiapay-woocommerce') . '</button> ';
 
 
         if (version_compare(WOOCOMMERCE_VERSION, '2.7.0', '>=')) {

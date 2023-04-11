@@ -6243,7 +6243,7 @@
     }
   }
   document.currentScript.getAttribute('key');
-  const a = document.querySelectorAll('.wc__kkiapay-button'),
+  const a = document.querySelectorAll('.kkiapay-button'),
     s = document.currentScript.attributes,
     l = i.formatAttributes(s);
   o(),
