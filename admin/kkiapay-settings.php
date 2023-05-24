@@ -55,6 +55,18 @@ return array(
         'desc_tip'    => true,
         'description' => __('Get your API keys from your Kkkiapay dashboard', 'kkiapay-woocommerce')
     ),
+    'paymentmethod' => array(
+        'title' => __('(Optional) Payment methods', 'kkiapay-woocommerce'),
+        'description' => __('Set the payment methods you choose to support.', 'kkiapay-woocommerce'),
+        'type' => 'select',
+        'default' => 'all',
+        'desc_tip'    => true,
+        'options' => array(
+            'all' => (__('All', 'kkiapay-woocommerce')),
+            'momo' => (__('Mobile Money', 'kkiapay-woocommerce')),
+            'card' => (__('Bank Cards', 'kkiapay-woocommerce'))
+        )
+    ),
     'position' => array(
         'title' => __('(Optional) Widget Position', 'kkiapay-woocommerce'),
         'type' => 'select',
@@ -72,11 +84,5 @@ return array(
         'type' => 'text',
         'desc_tip'    => true,
         'description' => __('When Kkiapay payment form is displayed directly on your site, you can choose the widget color (eg: red) according to your website colors. ', 'kkiapay-woocommerce')
-    ),
-    'url' => array(
-        'title' => __('(Optional) Add link to your shop logo', 'kkiapay-woocommerce'),
-        'type' => 'text',
-        'desc_tip'    => true,
-        'description' => __("Enter the URL to a 128x128px image of your brand or product. e.g. <code>https://yoursite.com/wp-content/uploads/2013/09/yourimage.jpg</code>", 'kkiapay-woocommerce')
     )
 );
