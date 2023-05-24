@@ -41,11 +41,9 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
         if ($this->description === "") {
 
 
-            $this->description = "<div>
-            <div class='kkiapay-payment-method'>
-              Moov Benin, Mtn Benin, Orange Cote d'Ivoire, Visa, Mastercard, American Express
-            </div>
-        </div>";
+            $this->description = "<div class='kkiapay-payment-method'>
+              Moov Money, MTN Money, Orange Money, TMoney, FreeMoney, Wave, Visa, Mastercard
+            </div>";
         }
 
 
