@@ -31,7 +31,7 @@ if [ $error == 0 ]; then
     echo "Tag already exists for version $VERSION, aborting deployment"
     exit 1
 fi
-  
+
 cd "$PLUGIN_BUILDS_PATH"
 # Remove any unzipped dir so we start from scratch
 rm -fR "$PLUGIN"
@@ -85,6 +85,10 @@ svn stat svn | grep '^?' | awk '{print $2}' | xargs -I x svn add x@
 # Remove deleted files from SVN
 svn stat svn | grep '^!' | awk '{print $2}' | xargs -I x svn rm --force x@
 svn stat svn
+
+echo org = $WP_ORG_USERNAME
+echo pass = $SVN_PASSWORD
+
 
 # Commit to SVN
 svn ci --no-auth-cache --username $WP_ORG_USERNAME --password $SVN_PASSWORD svn -m "Deploy version $VERSION"
