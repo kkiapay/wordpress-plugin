@@ -86,10 +86,6 @@ svn stat svn | grep '^?' | awk '{print $2}' | xargs -I x svn add x@
 svn stat svn | grep '^!' | awk '{print $2}' | xargs -I x svn rm --force x@
 svn stat svn
 
-echo org = $WP_ORG_USERNAME
-echo pass = $SVN_PASSWORD
-
-
 # Commit to SVN
 svn ci --no-auth-cache --username $WP_ORG_USERNAME --password $SVN_PASSWORD svn -m "Deploy version $VERSION"
 
