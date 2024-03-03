@@ -79,7 +79,7 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
         );
 
         if ($this->refund === "yes") $this->supports[] = "refunds";
-
+      
         $this->init_form_fields();
 
         $this->init_settings();
