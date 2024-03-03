@@ -131,6 +131,18 @@ msgstr ""
 "exemple <code>https://monsite.com/wp-content/uploads/2013/09/monimage.jpg</"
 "code>"
 
+#: admin/kkiapay-settings.php:89
+mgsid "Refund"
+msgstr "Remboursement"
+
+#: admin/kkiapay-settings.php:90
+mgsid "Enable/Disable refund"
+msgstr "Activer/Désactiver remboursement"
+
+#: admin/kkiapay-settings.php:94
+mgsid "Kkiapay does not support multiple refunds. This means that a refund for one order will refund the full amount to the customer."
+msgstr "Kkiapay ne prend pas en charge les remboursements multiples. Ca veut dire que un remboursement pour une commande remboursera l'intégralité de la somme au client"
+
 #: includes/class-wc-kkiapay-gateway.php:21
 msgid ""
 "Use kkiapay to accept payment from Mobile Money account, credit card or bank "
@@ -212,6 +224,9 @@ msgstr ""
 msgid "Amount paid: "
 msgstr "Montant payé:"
 
+msgid "Can&#39;t process refund at the moment. Try again later."
+msgstr "Impossible d'effectuer le remboursement pour le moment. Réessayer plus tard" 
+
 #: includes/class-wc-kkiapay-gateway.php:236
 msgid "The order payment failed on Kkiapay"
 msgstr "Le paiement de la commande a échoué sur Kkiapay"
@@ -244,6 +259,7 @@ msgstr "Réglages"
 #: kkiapay-woocommerce-plugin.php:49
 msgid "Docs"
 msgstr "Documentation"
+
 
 #: kkiapay-woocommerce-plugin.php:50
 msgid "Support"

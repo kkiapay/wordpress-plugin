@@ -1,10 +1,10 @@
 === KKiapay WooCommerce Plugin ===
 Contributors: shadaiali
-Tags: credit card, mobile money, africa payment,online payment, swift payment
-Requires at least: 4.4
-Tested up to: 5.7.2
-Requires PHP: 5.6
-Stable tag: 2.3.16
+Tags: credit card, mobile money, africa payment,online payment, swift payment, benin, cote d'ivoire , togo, senegal
+Requires at least: 6.0
+Tested up to: 6.4.3
+Requires PHP: 7.4
+Stable tag: 2.4.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -21,7 +21,9 @@ The KKiapay plugin extends WooCommerce allowing you to take payments directly on
 KKIAPAY is available in:
 
 * Benin
-* Senegal [WIP]
+* Côte d'Ivoire
+* Togo
+* Senegal
 * [More details at ](https://kkiapay.me/features/supported-countries)
 
 Kkiapay is developer friendly solution that allows you to accept mobile money and credit card, and direct bank payments in your application or website. Before using this plugin, make sure you have a right Merchant Account on Kkiapay, otherwise go and create your account. It is free and without pain.
