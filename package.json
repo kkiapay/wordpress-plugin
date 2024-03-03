@@ -1,0 +1,13 @@
+{
+  "devDependencies": {
+    "@wordpress/scripts": "^27.3.0"
+  },
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start",
+    "zip": "node src/zip.js"
+  },
+  "dependencies": {
+    "zip-a-folder": "^3.1.6"
+  }
+}
