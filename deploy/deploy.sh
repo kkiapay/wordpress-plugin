@@ -13,15 +13,14 @@ PROJECT_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
 PLUGIN_BUILDS_PATH="$PROJECT_ROOT/builds"
 PLUGIN_BUILD_CONFIG_PATH="$PROJECT_ROOT/build-cfg"
 VERSION=$(awk 'NR==7' readme.txt | cut -d ' ' -f 3)
-ZIP_FILE="$PLUGIN_BUILDS_PATH/$PLUGIN-$VERSION.zip"
+ZIP_FILE=$PROJECT_ROOT/$PLUGIN\_v$VERSION.zip
 
-mkdir -p $PLUGIN_BUILDS_PATH
-zip -r $ZIP_FILE . -x "deploy/*" "build-cfg/*" "builds/*" ".*" "wp-assets/*"
 # Ensure the zip file for the current version has been built
 if [ ! -f "$ZIP_FILE" ]; then
     echo "Built zip file $ZIP_FILE does not exist" 1>&2
     exit 1
 fi
+mkdir -p $PLUGIN_BUILDS_PATH
 
 # Check if the tag exists for the version we are building
 TAG=$(svn ls "https://plugins.svn.wordpress.org/$PLUGIN/tags/$VERSION")
@@ -32,9 +31,13 @@ if [ $error == 0 ]; then
     exit 1
 fi
 
+cp -R $ZIP_FILE $PLUGIN_BUILDS_PATH
+
 cd "$PLUGIN_BUILDS_PATH"
 # Remove any unzipped dir so we start from scratch
+
 rm -fR "$PLUGIN"
+
 # Unzip the built plugin
 unzip -q -o "$ZIP_FILE" -d $PLUGIN
 
@@ -87,7 +90,7 @@ svn stat svn | grep '^!' | awk '{print $2}' | xargs -I x svn rm --force x@
 svn stat svn
 
 # Commit to SVN
-svn ci --no-auth-cache --username $SVN_USERNAME --password $SVN_PASSWORD svn -m "Deploy version $VERSION"
+svn ci --no-auth-cache --username $WP_ORG_USERNAME --password $SVN_PASSWORD svn -m "Deploy version $VERSION"
 
 # Remove SVN temp dir
 rm -fR svn

@@ -19,9 +19,9 @@
 define('WC_KKIAPAY_MAIN_FILE', __FILE__);
 define('WC_KKIAPAY_VERSION', '2.3.16');
 
-define('WP_DEBUG', true);
-define('WP_DEBUG_DISPLAY', false);
-@ini_set('display_errors', 1);
+// define('WP_DEBUG', true);
+// define('WP_DEBUG_DISPLAY', false);
+// @ini_set('display_errors', 1);
 
 // Make sure WooCommerce is active
 if (!in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins'))))

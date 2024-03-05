@@ -79,7 +79,7 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
         );
 
         if ($this->refund === "yes") $this->supports[] = "refunds";
-      
+
         $this->init_form_fields();
 
         $this->init_settings();
@@ -176,6 +176,11 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
 
     public function admin_options()
     {
+?>
+        <h4>
+            <strong><?php printf(__('Optional: To avoid situations where bad network makes it impossible to verify transactions, set your webhook URL <a href="%1$s" target="_blank" rel="noopener noreferrer">here</a> to the URL below<span style="color: red"><pre><code>%2$s</code></pre></span>', 'woo-paystack'), 'https://app.kkiapay.me/dashboard/developers/keys', WC()->api_request_url('Wc_Kkiapay_Gateway_Webhook')); ?></strong>
+        </h4>
+<?php
         if (!$this->is_valid_for_use()) {
             echo '<div class="inline error"><p><strong>' . __('Kkiapay Payment Gateway Disabled', 'kkiapay-woocommerce') . '</strong>: ' . $this->msg . '</p></div>';
         } else {
@@ -202,7 +207,6 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
      */
     public function receipt_page($order_id)
     {
-
         $this->kkiapay_config['callback'] = $this->get_callback_url($order_id);
 
         //TODO: add transaction reason
@@ -256,6 +260,8 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
             $products = rtrim($products, ' | ');
 
             $this->kkiapay_config['data'] = [
+                "sdk" => "woocommerce",
+                "woocommerce_version" => WOOCOMMERCE_VERSION,
                 "order_id" => $order->get_id(),
                 "orderer_name" => $order->get_formatted_billing_full_name(),
                 "orderer_email" => $order->get_billing_email(),
@@ -360,6 +366,47 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
      */
     function on_kkiapay_webhook()
     {
+
+        if (!array_key_exists('HTTP_X_KKIAPAY_SECRET', $_SERVER) || (strtoupper($_SERVER['REQUEST_METHOD']) !== 'POST')) {
+            exit;
+        }
+        $json = file_get_contents('php://input');
+        $payload = json_decode($json);
+
+        if (!$payload->stateData || !$payload->stateData->order_id || $payload->stateData->sdk !== "woocommerce") {
+            return;
+        }
+        $order_id = $payload->stateData->order_id;
+        $order = wc_get_order($order_id);
+        if (!$order) {
+            return;
+        }
+
+        $stateData = $payload->stateData;
+        $status = strtoupper(explode(".", $payload->event)[1]);
+
+
+        require_once  __DIR__ . '/class-kkiapay-gateway.php';
+
+        if ($status == STATUS::SUCCESS && $payload->amount >= $order->get_total()) {
+            $order->update_status('completed');
+            $order->add_order_note(__('Payment was successful on Kkiapay', 'kkiapay-woocommerce'));
+            $order->add_order_note('Kkiapay transaction Id: ' . $payload->transactionId);
+            $order->add_meta_data('_transaction_id', $payload->transactionId, true);
+
+            $customer_note = __('Thank you for your order.<br>', 'kkiapay-woocommerce');
+            $customer_note .= __('Your payment was successful, we are now <strong>processing</strong> your order.', 'kkiapay-woocommerce');
+            $order->add_order_note($customer_note, 1);
+            function_exists('wc_reduce_stock_levels') ? wc_reduce_stock_levels($order_id) : $order->reduce_order_stock();
+
+            wc_add_notice($customer_note, 'notice');
+            $order->save();
+
+            WC()->cart->empty_cart();
+        } elseif ($status == STATUS::FAILED) {
+            $this->handlePaymentFailed($order);
+        }
+        exit;
     }
 
     /**
