@@ -50,12 +50,12 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
      */
     public $msg;
 
-    /**
-     * Is refund active?
-     *
-     * @var bool
-     */
-    public $refund;
+    // /**
+    //  * Is refund active?
+    //  *
+    //  * @var bool
+    //  */
+    // public $refund;
 
     /**
      * Protected constructor to prevent creating a new instance of the
@@ -78,7 +78,7 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
             'products',
         );
 
-        if ($this->refund === "yes") $this->supports[] = "refunds";
+        // if ($this->refund === "yes") $this->supports[] = "refunds";
 
         $this->init_form_fields();
 
@@ -373,6 +373,7 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
         $json = file_get_contents('php://input');
         $payload = json_decode($json);
 
+
         if (!$payload->stateData || !$payload->stateData->order_id || $payload->stateData->sdk !== "woocommerce") {
             return;
         }
@@ -382,13 +383,13 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
             return;
         }
 
-        $stateData = $payload->stateData;
-        $status = strtoupper(explode(".", $payload->event)[1]);
-
-
         require_once  __DIR__ . '/class-kkiapay-gateway.php';
+        $kkiapay = new KkiapayGateway($this->public_key, $this->private_key, $this->secret, $this->testmode);
+        $response = $kkiapay->verifyTransaction($payload->transactionId);
+        $status = $response->status;
 
-        if ($status == STATUS::SUCCESS && $payload->amount >= $order->get_total()) {
+
+        if ($status == STATUS::SUCCESS && $response->amount >= $order->get_total()) {
             $order->update_status('completed');
             $order->add_order_note(__('Payment was successful on Kkiapay', 'kkiapay-woocommerce'));
             $order->add_order_note('Kkiapay transaction Id: ' . $payload->transactionId);
