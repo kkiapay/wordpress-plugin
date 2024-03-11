@@ -15,7 +15,7 @@ const foldersAndFilesToCopy = [
     'README.md',
     'readme.txt'
 ]
-const folderPath = path.join(__dirname, '../kkiapay-woocomerce')
+const folderPath = path.join(__dirname, '../kkiapay-woocommerce')
 
 const readdir = promisify(fs.readdir);
 const stat = promisify(fs.stat);
@@ -106,7 +106,7 @@ async function a() {
 
 a()
     .then(() => {
-        const zipName = `kkiapay-woocomerce_v${PLUGIN_VERSION}.zip`
+        const zipName = `kkiapay-woocommerce_v${PLUGIN_VERSION}.zip`
         zip(folderPath, path.join(__dirname, '..', zipName)).then(() => {
             deleteFolderRecursive(folderPath)
             console.log("Your zip is here", path.join(__dirname, '..', zipName));
