@@ -176,11 +176,6 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
 
     public function admin_options()
     {
-?>
-        <h4>
-            <strong><?php printf(__('Optional: To avoid situations where bad network makes it impossible to verify transactions, set your webhook URL <a href="%1$s" target="_blank" rel="noopener noreferrer">here</a> to the URL below<span style="color: red"><pre><code>%2$s</code></pre></span>', 'woo-paystack'), 'https://app.kkiapay.me/dashboard/developers/keys', WC()->api_request_url('Wc_Kkiapay_Gateway_Webhook')); ?></strong>
-        </h4>
-<?php
         if (!$this->is_valid_for_use()) {
             echo '<div class="inline error"><p><strong>' . __('Kkiapay Payment Gateway Disabled', 'kkiapay-woocommerce') . '</strong>: ' . $this->msg . '</p></div>';
         } else {
@@ -188,6 +183,11 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
             $this->generate_settings_html();
             echo '</table>';
         }
+?>
+        <h4>
+            <strong><?php printf(__('Facultatif : Pour éviter les situations où un mauvais réseau rend impossible la vérification des transactions, définissez l\'URL de votre webhook <a href="%1$s" target="_blank" rel="noopener noreferrer">ici</a> sur l\'URL ci-dessous. <span><pre><code>%2$s</code></pre></span>', 'kkiapay-woocommerce'), 'https://app.kkiapay.me/dashboard/developers/keys', WC()->api_request_url('Wc_Kkiapay_Gateway_Webhook')); ?></strong>
+        </h4>
+<?php
     }
 
     public function process_payment($order_id)
