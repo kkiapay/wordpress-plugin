@@ -17,7 +17,7 @@
  */
 
 define('WC_KKIAPAY_MAIN_FILE', __FILE__);
-define('WC_KKIAPAY_VERSION', '2.3.16');
+define('WC_KKIAPAY_VERSION', '2.4.0');
 
 // define('WP_DEBUG', true);
 // define('WP_DEBUG_DISPLAY', false);
