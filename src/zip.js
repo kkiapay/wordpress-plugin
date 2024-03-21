@@ -3,7 +3,6 @@ const path = require('path');
 const { zip } = require("zip-a-folder")
 const { promisify } = require('util');
 
-PLUGIN_VERSION = "2.4.1"
 const foldersAndFilesToCopy = [
     "admin",
     "build",
@@ -106,7 +105,7 @@ async function a() {
 
 a()
     .then(() => {
-        const zipName = `kkiapay-woocommerce_v${PLUGIN_VERSION}.zip`
+        const zipName = `kkiapay-woocommerce.zip`
         zip(folderPath, path.join(__dirname, '..', zipName)).then(() => {
             deleteFolderRecursive(folderPath)
             console.log("Your zip is here", path.join(__dirname, '..', zipName));
