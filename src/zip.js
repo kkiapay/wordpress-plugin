@@ -3,7 +3,7 @@ const path = require('path');
 const { zip } = require("zip-a-folder")
 const { promisify } = require('util');
 
-PLUGIN_VERSION = "2.4.0"
+PLUGIN_VERSION = "2.4.1"
 const foldersAndFilesToCopy = [
     "admin",
     "build",
