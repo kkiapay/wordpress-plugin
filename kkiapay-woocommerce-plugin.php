@@ -7,7 +7,7 @@
  * Author: Kkiapay Developer Team ❤️
  * Author URI: https://kkiapay.me/
  * License: GPLv2
- * Version: 2.4.0
+ * Version: 2.4.1
  * Requires at least: 6.0
  * Tested up to: 6.4.3
  * WC requires at least: 6.0
@@ -17,11 +17,7 @@
  */
 
 define('WC_KKIAPAY_MAIN_FILE', __FILE__);
-define('WC_KKIAPAY_VERSION', '2.4.0');
-
-// define('WP_DEBUG', true);
-// define('WP_DEBUG_DISPLAY', false);
-// @ini_set('display_errors', 1);
+define('WC_KKIAPAY_VERSION', '2.4.1');
 
 // Make sure WooCommerce is active
 if (!in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins'))))

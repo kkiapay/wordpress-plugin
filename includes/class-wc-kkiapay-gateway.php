@@ -67,7 +67,7 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
         $this->id                 = 'kkiapay_woocommerce_plugin';
         $this->icon               = "https://firebasestorage.googleapis.com/v0/b/love-kkiapay.appspot.com/o/kkiapay-big-removebg-preview.png?alt=media&token=c8739252-66e7-41d6-9e49-392cad822020";
         $this->has_fields         = true;
-        $this->refund             = $this->get_option('refund');
+     // $this->refund             = $this->get_option('refund');
         $this->title              = array_key_exists('title', $this->settings) ? $this->settings['title'] : '';
         $this->method_title       = 'Kkiapay';
         $this->method_description = array_key_exists('description', $this->settings) ? $this->settings['description'] : '';
