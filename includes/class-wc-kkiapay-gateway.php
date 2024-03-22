@@ -77,6 +77,9 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
      // $this->refund             = $this->get_option('refund');
         $this->title              = array_key_exists('title', $this->settings) ? $this->settings['title'] : '';
         $this->method_title       = 'Kkiapay';
+        $this->description = "<div class='kkiapay-payment-method'>
+              Moov Money, MTN Money, Orange Money, TMoney, FreeMoney, Wave, Visa, Mastercard
+            </div>";
         $this->method_description = array_key_exists('description', $this->settings) ? $this->settings['description'] : '';
         $this->public_key         = $this->get_option('public_key');
         $this->private_key        = $this->get_option('private_key');
