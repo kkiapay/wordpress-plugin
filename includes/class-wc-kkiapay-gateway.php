@@ -5,6 +5,7 @@ if (!defined('ABSPATH')) {
 }
 
 require_once(ABSPATH . 'wp-admin/includes/plugin.php');
+require_once  __DIR__ . '/class-kkiapay-gateway.php';
 
 class WC_Kkiapay_Gateway extends WC_Payment_Gateway
 {
@@ -92,11 +93,11 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
         $this->kkiapay_config['sandbox']       = $this->testmode;
 
 
-        if ($this->description === "") {
+        // if ($this->description === "") {
             $this->description = "<div class='kkiapay-payment-method'>
               Moov Money, MTN Money, Orange Money, TMoney, FreeMoney, Wave, Visa, Mastercard
             </div>";
-        }
+        // }
 
 
 
@@ -293,7 +294,6 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
         $order_id = $_GET["order_id"];
         $transaction_id = $_GET["transaction_id"];
 
-        require_once  __DIR__ . '/class-kkiapay-gateway.php';
         $kkiapay = new KkiapayGateway($this->public_key, $this->private_key, $this->secret, $this->testmode);
 
         if (isset($transaction_id)) {
@@ -383,7 +383,6 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
             return;
         }
 
-        require_once  __DIR__ . '/class-kkiapay-gateway.php';
         $kkiapay = new KkiapayGateway($this->public_key, $this->private_key, $this->secret, $this->testmode);
         $response = $kkiapay->verifyTransaction($payload->transactionId);
         $status = $response->status;
@@ -448,7 +447,6 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
      */
     public function process_refund($order_id, $amount = null, $reason = '')
     {
-        require_once  __DIR__ . '/class-kkiapay-gateway.php';
         $kkiapay = new KkiapayGateway($this->public_key, $this->private_key, $this->secret, $this->testmode);
         if (!($this->public_key && $this->secret)) {
             return false;

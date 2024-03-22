@@ -13,7 +13,7 @@ PROJECT_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
 PLUGIN_BUILDS_PATH="$PROJECT_ROOT/builds"
 PLUGIN_BUILD_CONFIG_PATH="$PROJECT_ROOT/build-cfg"
 VERSION=$(awk 'NR==7' readme.txt | cut -d ' ' -f 3)
-ZIP_FILE=$PROJECT_ROOT/$PLUGIN\_v$VERSION.zip
+ZIP_FILE=$PROJECT_ROOT/$PLUGIN.zip
 
 # Ensure the zip file for the current version has been built
 if [ ! -f "$ZIP_FILE" ]; then
