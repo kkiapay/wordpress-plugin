@@ -1,6 +1,8 @@
 <?php
 // Exit if accessed directly.
 
+require_once  __DIR__ . '/class-kkiapay-gateway.php';
+
 use KkiapayGateway\KkiapayGateway;
 use KkiapayGateway\STATUS;
 
