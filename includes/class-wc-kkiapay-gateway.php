@@ -1,11 +1,15 @@
 <?php
 // Exit if accessed directly.
+
+use KkiapayGateway\KkiapayGateway;
+use KkiapayGateway\STATUS;
+
 if (!defined('ABSPATH')) {
     exit;
 }
 
 require_once(ABSPATH . 'wp-admin/includes/plugin.php');
-require_once  __DIR__ . '/class-kkiapay-gateway.php';
+
 
 class WC_Kkiapay_Gateway extends WC_Payment_Gateway
 {
