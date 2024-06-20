@@ -4,7 +4,7 @@ Tags: credit card, mobile money, africa payment,online payment, swift payment, b
 Requires at least: 6.0
 Tested up to: 6.4.3
 Requires PHP: 7.4
-Stable tag: 2.4.5
+Stable tag: 2.4.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
