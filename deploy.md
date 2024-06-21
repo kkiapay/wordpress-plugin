@@ -7,3 +7,5 @@ Need to update version before update on Store.
   - readme.txt
     * line 7: **Stable tag: 2.4.x**
         
+
+export SVN_PASSWORD='' && export SVN_USERNAME='' && deploy/deploy.sh
