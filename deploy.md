@@ -4,6 +4,8 @@ Need to update version before update on Store.
 
   - kkiapay-woocommerce-plugin.php
     * line 10:  **Version: 2.4.x**
+  - kkiapay-woocommerce-plugin.php
+    * line 20:  **define('WC_KKIAPAY_VERSION', '2.4.x');**
   - readme.txt
     * line 7: **Stable tag: 2.4.x**
         

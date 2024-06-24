@@ -17,7 +17,7 @@
  */
 
 define('WC_KKIAPAY_MAIN_FILE', __FILE__);
-define('WC_KKIAPAY_VERSION', '2.4.5');
+define('WC_KKIAPAY_VERSION', '2.4.7');
 
 // Make sure WooCommerce is active
 if (!in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins'))))

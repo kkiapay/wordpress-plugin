@@ -74,7 +74,7 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
         $this->id                 = 'kkiapay_woocommerce_plugin';
         $this->icon               = 'https://github.com/kkiapay/wordpress-plugin/assets/91498943/69fd580e-b43f-4a39-abc9-cba86ebfb74d';
         $this->has_fields         = true;
-     // $this->refund             = $this->get_option('refund');
+        // $this->refund             = $this->get_option('refund');
         $this->title              = array_key_exists('title', $this->settings) ? $this->settings['title'] : '';
         $this->method_title       = 'Kkiapay';
         $this->description = "<div class='kkiapay-payment-method'>
@@ -103,7 +103,7 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
 
 
         // if ($this->description === "") {
-            $this->description = "<div class='kkiapay-payment-method'>
+        $this->description = "<div class='kkiapay-payment-method'>
               Moov Money, MTN Money, Orange Money, TMoney, FreeMoney, Wave, Visa, Mastercard
             </div>";
         // }
@@ -151,17 +151,21 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
 
 
 
-        wp_register_style('custom-kkiapay-style', plugins_url('../assets/css/style.css', __FILE__));
+        wp_register_style('custom-kkiapay-style', plugins_url('../assets/css/style.css', __FILE__), [], $plugin_information['Version']);
         wp_enqueue_style('custom-kkiapay-style');
 
         wp_enqueue_script('setup-kkiapay-script', "https://cdn.kkiapay.me/k.js", [], $plugin_information['Version'], true);
-        wp_register_script('init-kkiapay-script', plugins_url('../assets/js/invoke.js', __FILE__), ['setup-kkiapay-script'], 'v1', true);
+        wp_register_script('init-kkiapay-script', plugins_url('../assets/js/invoke.js', __FILE__), ['setup-kkiapay-script'], $plugin_information['Version'], true);
     }
 
     public function import_admin_scripts()
     {
-        wp_enqueue_script('jscolor', plugins_url('../assets/js/jscolor.js', __FILE__), [], 'v1', true);
-        wp_enqueue_script('setup-admin-script', plugins_url('../assets/js/admin.js', __FILE__), [], 'v1', true);
+        $filename = 'kkiapay-woocommerce-plugin.php';
+        $path = plugin_dir_path(__DIR__) . $filename;
+        $plugin_information = get_plugin_data($path);
+
+        wp_enqueue_script('jscolor', plugins_url('../assets/js/jscolor.js', __FILE__), [], $plugin_information['Version'], true);
+        wp_enqueue_script('setup-admin-script', plugins_url('../assets/js/admin.js', __FILE__), [], $plugin_information['Version'], true);
     }
 
     /**

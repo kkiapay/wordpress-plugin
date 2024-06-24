@@ -83,7 +83,7 @@ final class WC_KKiapay_Gateway_Blocks_Support extends AbstractPaymentMethodType
         return array(
             'title'             => $this->get_setting('title'),
             'description'       => $this->get_setting('description'),
-            'icon'              => plugins_url('assets/img/kkiapay.svg', WC_KKIAPAY_MAIN_FILE),
+            'icon'              => plugins_url('assets/img/kkiapay.svg', WC_KKIAPAY_MAIN_FILE) . '?ver=' . WC_KKIAPAY_VERSION,
             'supports'          => array_filter($gateway->supports, array($gateway, 'supports')),
         );
     }
