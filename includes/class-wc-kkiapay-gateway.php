@@ -317,7 +317,7 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
 
             if ($response->status == STATUS::SUCCESS && $response->amount >= $order->get_total()) {
 
-                $order->update_status('completed');
+                $order->update_status('processing');
                 $order->add_order_note(__('Payment was successful on Kkiapay', 'kkiapay-woocommerce'));
                 $order->add_order_note('Kkiapay transaction Id: ' . $response->transactionId);
                 $order->add_meta_data('_transaction_id', $response->transactionId, true);
@@ -402,7 +402,7 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
 
 
         if ($status == STATUS::SUCCESS && $response->amount >= $order->get_total()) {
-            $order->update_status('completed');
+            $order->update_status('processing');
             $order->add_order_note(__('Payment was successful on Kkiapay', 'kkiapay-woocommerce'));
             $order->add_order_note('Kkiapay transaction Id: ' . $payload->transactionId);
             $order->add_meta_data('_transaction_id', $payload->transactionId, true);
