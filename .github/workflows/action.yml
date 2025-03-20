@@ -18,19 +18,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Cache Composer packages
-      id: composer-cache
-      uses: actions/cache@v2
-      with:
-        path: vendor
-        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-php-
-
-    - name: Install dependencies
-      run: composer install
-      
-
     - name: change file permissions
       run: chmod +x ./deploy/deploy.sh
       

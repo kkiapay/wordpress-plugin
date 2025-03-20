@@ -84,5 +84,14 @@ return array(
         'type' => 'text',
         'desc_tip'    => true,
         'description' => __('When Kkiapay payment form is displayed directly on your site, you can choose the widget color (eg: red) according to your website colors. ', 'kkiapay-woocommerce')
-    )
+    ),
+    // 'refund' => array(
+    //     'title' => __('Refund', 'kkiapay-woocommerce'),
+    //     'label' => __('Enable/Disable refund', 'kkiapay-woocommerce'),
+    //     'default' => 'false',
+    //     'type' => 'checkbox',
+    //     'desc_tip'    => true,
+    //     'description' => __('Kkiapay does not support multiple refunds. This means that a refund for one order will refund the full amount to the customer.', 'kkiapay-woocommerce')
+    // )
+
 );

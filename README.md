@@ -1,6 +1,6 @@
 ## Kkiapay
 
-[![Build Status](https://travis-ci.org/kkiapay/wordpress-plugin.svg?branch=master)](https://travis-ci.org/kkiapay/wordpress-plugin)
+[![Deploy kkiapay woocommerce plugin](https://github.com/kkiapay/wordpress-plugin/actions/workflows/action.yml/badge.svg?branch=master)](https://github.com/kkiapay/wordpress-plugin/actions/workflows/action.yml)
 
 KkiaPay allows businesses to safely receive payments by mobile money, credit card and bank account.
 
@@ -9,7 +9,9 @@ Kkiapay is developer friendly solution that allows you to accept mobile money an
 KKIAPAY is available in:
 
 * Benin
-* Senegal [WIP]
+* Côte d'Ivoire
+* Togo
+* Senegal
 * [More details at ](https://kkiapay.me/features/supported-countries)
 
 ## Installation

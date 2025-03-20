@@ -1,16 +1,17 @@
 document.addEventListener('DOMContentLoaded', function () {
   const button = document.querySelector('#wc__kkiapay-button');
-  
-  inputs.sandbox = inputs.testmode === "yes";
+  inputs.sandbox = inputs.sandbox === "1";
   inputs.paymentmethod = [inputs.paymentmethod];
 
   button.addEventListener('click', function (event) {
     event.preventDefault();
+
     inputs.sdk = 'woocommerce';
     window.openKkiapayWidget(inputs);
 
     let redirectionStart = false;
 
+    // If redirection is not trigger by the iframe trigger it manually after 5s
     window.addSuccessListener((data) => {
       setTimeout(() => {
         if (!redirectionStart) {
