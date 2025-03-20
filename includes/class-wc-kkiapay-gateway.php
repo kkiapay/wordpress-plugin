@@ -163,6 +163,14 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
         //TODO: add transaction reason
 
         $order = wc_get_order($order);
+        $item =array_shift(array_values($order->get_items()));
+
+        $this->kkiapay_config['data'] = [
+            "id"=>$item->get_order_id(),
+            "name"=>$item->get_name(),
+            "quantity"=>$item->get_quantity(),
+        ];
+
         echo '<p>' . __('Thank you for your order, please click the <b>Proceed to payment</b> button below to make payment.', 'kkiapay-woocommerce') . '</p>';
         echo '<a class="button cancel" href="' . esc_url($order->get_cancel_order_url()) . '">';
         echo __('Cancel order', 'kkiapay-woocommerce') . '</a> ';
