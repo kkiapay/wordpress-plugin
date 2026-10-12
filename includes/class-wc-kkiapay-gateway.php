@@ -324,20 +324,7 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
             $order = wc_get_order($order_id);
 
             if ($response->status == STATUS::SUCCESS && $response->amount >= $order->get_total()) {
-
-                $order->update_status('completed');
-                $order->add_order_note(__('Payment was successful on Kkiapay', 'kkiapay-woocommerce'));
-                $order->add_order_note('Kkiapay transaction Id: ' . $response->transactionId);
-                $order->add_meta_data('_transaction_id', $response->transactionId, true);
-
-                $customer_note = __('Thank you for your order.<br>', 'kkiapay-woocommerce');
-                $customer_note .= __('Your payment was successful, we are now <strong>processing</strong> your order.', 'kkiapay-woocommerce');
-                $order->add_order_note($customer_note, 1);
-                function_exists('wc_reduce_stock_levels') ? wc_reduce_stock_levels($order_id) : $order->reduce_order_stock();
-
-                wc_add_notice($customer_note, 'notice');
-                $order->save();
-
+                $this->handlePaymentSuccess($order, $response->transactionId);
                 $woocommerce->cart->empty_cart();
                 wp_redirect($this->get_return_url($order));
             } elseif ($response->status == STATUS::PENDING) {
@@ -410,24 +397,38 @@ class WC_Kkiapay_Gateway extends WC_Payment_Gateway
 
 
         if ($status == STATUS::SUCCESS && $response->amount >= $order->get_total()) {
-            $order->update_status('completed');
-            $order->add_order_note(__('Payment was successful on Kkiapay', 'kkiapay-woocommerce'));
-            $order->add_order_note('Kkiapay transaction Id: ' . $payload->transactionId);
-            $order->add_meta_data('_transaction_id', $payload->transactionId, true);
-
-            $customer_note = __('Thank you for your order.<br>', 'kkiapay-woocommerce');
-            $customer_note .= __('Your payment was successful, we are now <strong>processing</strong> your order.', 'kkiapay-woocommerce');
-            $order->add_order_note($customer_note, 1);
-            function_exists('wc_reduce_stock_levels') ? wc_reduce_stock_levels($order_id) : $order->reduce_order_stock();
-
-            wc_add_notice($customer_note, 'notice');
-            $order->save();
-
+            $this->handlePaymentSuccess($order, $response->transactionId);
             WC()->cart->empty_cart();
         } elseif ($status == STATUS::FAILED) {
             $this->handlePaymentFailed($order);
         }
         exit;
+    }
+
+    /**
+     * Apply a verified payment once, even when both Kkiapay callbacks arrive.
+     *
+     * @param WC_Order $order
+     * @param string $transaction_id
+     */
+    private function handlePaymentSuccess(WC_Order $order, $transaction_id)
+    {
+        if ($order->is_paid()) {
+            return;
+        }
+
+        $order->set_transaction_id($transaction_id);
+        $order->update_status('completed');
+        $order->add_order_note(__('Payment was successful on Kkiapay', 'kkiapay-woocommerce'));
+        $order->add_order_note('Kkiapay transaction Id: ' . $transaction_id);
+
+        $customer_note = __('Thank you for your order.<br>', 'kkiapay-woocommerce');
+        $customer_note .= __('Your payment was successful, we are now <strong>processing</strong> your order.', 'kkiapay-woocommerce');
+        $order->add_order_note($customer_note, 1);
+        function_exists('wc_reduce_stock_levels') ? wc_reduce_stock_levels($order->get_id()) : $order->reduce_order_stock();
+
+        wc_add_notice($customer_note, 'notice');
+        $order->save();
     }
 
     /**
